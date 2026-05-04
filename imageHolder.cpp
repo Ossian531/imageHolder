@@ -28,7 +28,7 @@ int main(int argc, char *argv[]){
         for (const auto& entry : fs::directory_iterator(dirPath)) {
             if (entry.is_regular_file()) {
                 fs::file_time_type lastWriteTime = fs::last_write_time(entry);
-                if (lastWriteTime > mostRecentTime | first) {
+                if (lastWriteTime > mostRecentTime || first) {
                     mostRecentTime = lastWriteTime;
                     choosenPath = entry.path();
                     first = false;
